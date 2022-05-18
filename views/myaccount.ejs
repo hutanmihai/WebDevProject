@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Hutan Mihai">
+        <link rel="stylesheet" type="text/css" href="../static/css/myaccount.css">
+        <link rel="shortcut icon" href="../static/img/shortcut-icon.jpg">
+        <title>Cinemix</title>
+    </head>
+    <body>
+        <header class="Header">
+            <%- include("./partials/navbar") %>
+        </header>
+        <main>
+            <div class="Container">   
+                <div class="ContainerUp">
+                    <img class="Avatar" src="../static/img/avatar-icon.webp" alt="MyAvatar">
+                    <div class="Details">    
+                        <div class="Email">
+                            <p>Your email adress:</p>
+                            <p>robertmatache@gmail.com</p>
+                        </div>
+                        <div class="change_password">
+                            <button class="changepassword" type="button">
+                                Change your password
+                            </button>
+                        </div>
+                        <div class="delete_account">
+                            <button class="deleteaccount" type="button">
+                                Delete your account
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>            
+        </main>
+        <footer>
+            <div class="ReviewApp">
+                <form class="ReviewAppForm">
+                    <p>Do you like our site?</p>
+                    <div class="flex">
+                        <input type="radio" name="LikeIT"><label>Yes</label>
+                        <input type="radio" name="LikeIT"><label>No</label>
+                    </div>
+                </form>
+            </div>
+        </footer>
+        <script src="myaccount.js"></script>    
+    </body>
+</html>    
