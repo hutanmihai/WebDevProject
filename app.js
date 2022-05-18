@@ -1,10 +1,9 @@
-// Importing express module
 const express = require('express');
 const req = require('express/lib/request');
 const res = require('express/lib/response');
 const app = express();
 const fs = require('fs');
- 
+
 app.use(express.json());
 
 app.set('view engine', 'ejs');
