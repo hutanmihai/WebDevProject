@@ -3,16 +3,25 @@
     padding: 0;
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
-html{font-size: 16px; background-color: #16161a; color: #94a1b2; overflow-x: hidden;}
-button{background-color: #7f5af0; color: #fffffe;}
-h1,h2{color: #fffffe;}
-h2{font-size: 2rem;}
-a{text-decoration: none; color: #fffffe; font-weight: bold;}
-a:hover{color: #7f5af0;}
-p{letter-spacing: 0.6px;}
-span:hover{color: #7f5af0;}
 
-.Header{display: flex;position: relative;z-index: 3; justify-content: space-between; align-items: center; height: 10vh; background-color: #94a1b2; position: sticky; top: 0;}
+:root{
+    --purple: #7f5af0;
+    --white: #fffffe;
+    --grey: #94a1b2;
+    --black: #16161a;
+    --black2: #010101;
+}
+
+html{font-size: 16px; background-color: var(--black); color: var(--grey); overflow-x: hidden;}
+button{background-color: var(--purple); color: var(--white);}
+h1,h2{color: var(--white);}
+h2{font-size: 2rem;}
+a{text-decoration: none; color: var(--white); font-weight: bold;}
+a:hover{color: var(--purple);}
+p{letter-spacing: 0.6px;}
+span:hover{color: var(--purple);}
+
+.Header{display: flex;position: relative;z-index: 3; justify-content: space-between; align-items: center; height: 10vh; background-color: var(--grey); position: sticky; top: 0;}
     .Logo{display:flex;align-items: center; height: 80%; width: auto;}
     .MainMenu{display: flex;align-items: center; height: 100%;}
         .MainMenuList{display: flex; justify-content: space-evenly;align-items: center; height: 100%;}
@@ -61,7 +70,7 @@ span:hover{color: #7f5af0;}
 .DropDown{display: none;}   
 
 *::-webkit-scrollbar {width: 14px;}  
-*::-webkit-scrollbar-thumb {background-color: #7f5af0;}    
+*::-webkit-scrollbar-thumb {background-color: var(--purple);}    
 
 .NewsTextGroup img{animation: float 6s ease-in-out infinite;}
 
@@ -92,7 +101,7 @@ span:hover{color: #7f5af0;}
 
 }
 
-span{color: #fffffe; font-size: 1.2rem;}
+span{color: var(--white); font-size: 1.2rem;}
 .ComunityTextGroup{line-height: 1.5;}
 
 
@@ -116,10 +125,10 @@ span{color: #fffffe; font-size: 1.2rem;}
     .MainMenuList li:nth-child(2){display: none;}
     .RightNav{display: none;}
     .DropDown{display: block; position: relative;}
-    .DropDownButton{display: block; border: none; outline: none; background-color: inherit; margin: 0;cursor: pointer;color:#fffffe; font-size: 1.5rem; padding-left: 5vw; padding-right: 5vw;}
-    .DropDownContent{display: none;position: absolute;box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); width: 100%; background-color: #94a1b2; margin-top: 5px; font-size: 0.8rem; border-radius: 10px;}
+    .DropDownButton{display: block; border: none; outline: none; background-color: inherit; margin: 0;cursor: pointer;color:var(--white); font-size: 1.5rem; padding-left: 5vw; padding-right: 5vw;}
+    .DropDownContent{display: none;position: absolute;box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2); width: 100%; background-color: var(--grey); margin-top: 5px; font-size: 0.8rem; border-radius: 10px;}
         .DropDownContent a{display: block;position: relative; text-align: center; padding: 12px 16px; text-decoration: none;}
-            .DropDownContent a:hover{color: #7f5af0;}
+            .DropDownContent a:hover{color: var(--purple);}
             .DropDown:hover .DropDownContent{display: block;}
 
     .Hero div{font-size: 1rem;}
