@@ -1,14 +1,14 @@
 function changecolour(){
     const nume_item = "lightmode";
     if(window.localStorage.getItem(nume_item) != null){
-        if(window.localStorage.getItem(nume_item) == 0){
+        if(window.localStorage.getItem(nume_item) == 'false'){
             window.localStorage.removeItem(nume_item);
             document.documentElement.style.setProperty('--white','#222525')
             document.documentElement.style.setProperty('--black','#f8f5f2')
             document.documentElement.style.setProperty('--purple','#078080')
             document.documentElement.style.setProperty('--grey','#f45d48')
             document.documentElement.style.setProperty('--black2','#f8f5a9')
-            window.localStorage.setItem(nume_item, 1);
+            window.localStorage.setItem(nume_item, 'true');
         }
         else{
             document.documentElement.style.setProperty('--white','#fffffe')
@@ -16,7 +16,7 @@ function changecolour(){
             document.documentElement.style.setProperty('--purple','#7f5af0')
             document.documentElement.style.setProperty('--grey','#94a1b2')
             document.documentElement.style.setProperty('--black2','#010101')
-            window.localStorage.setItem(nume_item, 1);
+            window.localStorage.setItem(nume_item, 'false');
         }
     }
     else{
@@ -25,6 +25,6 @@ function changecolour(){
         document.documentElement.style.setProperty('--purple','#078080')
         document.documentElement.style.setProperty('--grey','#f45d48')
         document.documentElement.style.setProperty('--black2','#f8f5a9')
-        window.localStorage.setItem(nume_item, 1);
+        window.localStorage.setItem(nume_item, 'false');
     }
 }
