@@ -78,7 +78,10 @@ p{letter-spacing: 0.6px;}
         .LatestReleaseTable tr td form{display: flex; justify-content: center; align-items: center;}
         .LatestReleaseTable tr td form div{display: flex;flex-direction: column-reverse; justify-content: center; align-items: center;}
         
-section{margin-top: 10vh;}        
+section{margin-top: 10vh;}
+
+*::-webkit-scrollbar {width: 14px;}
+*::-webkit-scrollbar-thumb {background-color: var(--purple);}
 
 
 @media screen and (max-width: 1100px) {
