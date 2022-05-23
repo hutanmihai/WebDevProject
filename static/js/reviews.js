@@ -1,62 +1,3 @@
-let ButtonDark_Light = document.getElementById('changecolourbutton');
-const nume_item = "mode";
-
-setInterval(checkMode, 0);
-
-function checkMode(){
-    if (window.localStorage.getItem(nume_item) == 'dark' || window.localStorage.getItem(nume_item) == null) turndark();
-    else{
-        turnlight();
-    }
-    clearInterval();
-}
-
-function turnlight(){
-    document.documentElement.style.setProperty('--white', '#222525')
-    document.documentElement.style.setProperty('--black', '#f8f5f2')
-    document.documentElement.style.setProperty('--purple', '#078080')
-    document.documentElement.style.setProperty('--grey', '#f45d48')
-    document.documentElement.style.setProperty('--black2', '#f8f5a9')
-}
-
-function turndark(){
-    document.documentElement.style.setProperty('--white', '#fffffe')
-    document.documentElement.style.setProperty('--black', '#16161a')
-    document.documentElement.style.setProperty('--purple', '#7f5af0')
-    document.documentElement.style.setProperty('--grey', '#94a1b2')
-    document.documentElement.style.setProperty('--black2', '#010101')
-}
-ButtonDark_Light.addEventListener("click", function () {
-    if (window.localStorage.getItem(nume_item) == 'dark' || window.localStorage.getItem(nume_item) == null) {
-        window.localStorage.clear();
-        window.localStorage.setItem(nume_item, 'light')
-        turnlight();
-    } else {
-        window.localStorage.removeItem(nume_item);
-        turndark();
-        window.localStorage.setItem(nume_item, 'dark');
-    }
-})
-
-document.addEventListener('keydown', (e) => {
-    switch (e.keyCode) {
-        case 39:
-            if (window.localStorage.getItem(nume_item) == 'dark' || window.localStorage.getItem(nume_item) == null) {
-                window.localStorage.clear();
-                window.localStorage.setItem(nume_item, 'light')
-                turnlight();
-            }
-            break
-        case 37:
-            if (window.localStorage.getItem(nume_item) == 'light') {
-                window.localStorage.removeItem(nume_item);
-                turndark();
-                window.localStorage.setItem(nume_item, 'dark');
-            }
-            break
-    }
-})
-
 const t1 = "Once is necessary twice is preferable. Taking notes is also a good idea and will help the writing process by making it easy to refer to your in-the-moment thoughts and reactions.";
 const t2 = "Are you writing for a fan site, a national news outlet, or a Teen Magazine? Knowing who your readers are can help you decide what elements of the movie to highlight. You should also adjust your writing style to fit the target audience.";
 const t3 = "Professional reviewers do not shy away from telling their readers whether they thought the movie was good, bad, or indifferent; in fact, readers come to rely on those reviewers whose tastes reflect their own when deciding whether or not to spend their time and money. Professional reviewers also have watched a lot of movies and can express why and how they came to their criticism. Be sure to back up your thoughts with specifics–a disappointing performance, a ridiculous plot, beautiful cinematography, difficult material that leaves you thinking, and so on.";
@@ -66,24 +7,18 @@ const t6 = "Give your readers some idea of the plot, but be careful not to inclu
 const t7 = "Many casual filmgoers will be inspired to see a movie if a favorite actor is in it, so you should probably spend a little space talking about the performances: seasoned actor in a new kind of role, brilliant performance from a rising star, excellence despite a lackluster script, dynamics in an ensemble, and so much more can be said about the actors in any given film.";
 const t8 = "This is where your film geek can really shine. Tell your readers about the highlights or missteps of directors, cinematographers, costume designers and CGI magicians. What worked, what surprised, what fell short of expectations, are all great questions to address in the body of your review.";
 const t9 = "Edit your work; your opinions will not be taken seriously if you misspell the director’s name or can’t put together a grammatically correct sentence. Take the time to check your spelling and edit your piece for organizational flow.";
-const t10 = "random text";
 
-let text_arrayforconcat1 = [];
-let text_arrayforconcat2 = [];
+
 let text_array = [];
 
-text_arrayforconcat1.push(t1,t2,t3,t4,t5);
-text_arrayforconcat2.push(t6,t7,t8,t9,t10);
-text_array = text_arrayforconcat1.concat(text_arrayforconcat2);
-text_array.pop();
+text_array.push(t1,t2,t3,t4,t5,t6,t7,t8,t9);
+
 text_array.sort(function (firstEl,secondEl){
     if (firstEl.length <= secondEl.length){
         return -1;
     }
     else return 0;
 });
-text_array.reverse();
-text_array.reverse();
 for (let i=0; i<text_array.length; ++i){
     if (i==0){
         document.getElementById("one").innerText = text_array[i];
