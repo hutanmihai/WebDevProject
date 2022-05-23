@@ -56,3 +56,14 @@ document.addEventListener('keydown', (e) => {
             break
     }
 })
+
+let changebuton = document.getElementById("changecolourbutton");
+setInterval(schimbaCuloareaButonului, 2000);
+function schimbaCuloareaButonului(){
+    let culoareRandom = Math.floor(Math.random()*16777215).toString(16);
+    changebuton.style.backgroundColor = '#' + culoareRandom;
+}
+
+function deleteLocal(){
+    localStorage.clear();
+}

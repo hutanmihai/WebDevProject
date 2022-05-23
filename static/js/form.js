@@ -30,5 +30,9 @@ function validateForm() {
             newh.remove();
         }, 5000)
         return false;
-    } else return true;
+    } else {
+        let data = new Date().toISOString().slice(0, 10)
+        localStorage.setItem("data-conectare",data);
+        return true;
+    }
 }

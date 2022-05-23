@@ -34,7 +34,7 @@ span:hover{color: var(--purple);}
                 .MyAccountImg{}
         .SignOut{margin-right: 1.5vw;}
             .SignOutLink{}  
-
+#data-conectarii{display: flex;justify-content: center;align-items: center;height: 100px;}
 .DropDown{display: none;}            
 
 main{display: flex; justify-content: center; align-items: center;height: 90vh;}
