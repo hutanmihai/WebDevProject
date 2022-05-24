@@ -21,9 +21,9 @@
             <div class="Login">
                 <h1 class="LoginTitle">Connect to your Cinemix account</h1>
                 <h1 class="LoginTitleMobile">Sign Up</h1>
-                <form name="LoginForm" class="LoginForm" action="index" onsubmit="return validateForm()">
-                    <input class="LoginInput" type="email" id="user" name="user" placeholder="email"/>
-                    <input class="LoginInput" type="password" id="pass" name="pass" placeholder="password"/>
+                <form name="LoginForm" class="LoginForm" action="/register-post" onsubmit="return validateForm()" method="POST">
+                    <input class="LoginInput" for="user" type="email" id="user" name="email" placeholder="email"/>
+                    <input class="LoginInput" for="password" type="password" id="pass" name="pass" placeholder="password"/>
                     <button class="LoginButton" type="submit">Sign Up</button>
                 </form>
             </div>    

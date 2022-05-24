@@ -63,7 +63,3 @@ function schimbaCuloareaButonului(){
     let culoareRandom = Math.floor(Math.random()*16777215).toString(16);
     changebuton.style.backgroundColor = '#' + culoareRandom;
 }
-
-function deleteLocal(){
-    localStorage.clear();
-}
