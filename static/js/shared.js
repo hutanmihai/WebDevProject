@@ -3,15 +3,15 @@ const nume_item = "mode";
 
 setInterval(checkMode, 0);
 
-function checkMode(){
+function checkMode() {
     if (window.localStorage.getItem(nume_item) == 'dark' || window.localStorage.getItem(nume_item) == null) turndark();
-    else{
+    else {
         turnlight();
     }
     clearInterval();
 }
 
-function turnlight(){
+function turnlight() {
     document.documentElement.style.setProperty('--white', '#222525')
     document.documentElement.style.setProperty('--black', '#f8f5f2')
     document.documentElement.style.setProperty('--purple', '#078080')
@@ -19,13 +19,14 @@ function turnlight(){
     document.documentElement.style.setProperty('--black2', '#f8f5a9')
 }
 
-function turndark(){
+function turndark() {
     document.documentElement.style.setProperty('--white', '#fffffe')
     document.documentElement.style.setProperty('--black', '#16161a')
     document.documentElement.style.setProperty('--purple', '#7f5af0')
     document.documentElement.style.setProperty('--grey', '#94a1b2')
     document.documentElement.style.setProperty('--black2', '#010101')
 }
+
 ButtonDark_Light.addEventListener("click", function () {
     if (window.localStorage.getItem(nume_item) == 'dark' || window.localStorage.getItem(nume_item) == null) {
         window.localStorage.clear();
@@ -59,7 +60,8 @@ document.addEventListener('keydown', (e) => {
 
 let changebuton = document.getElementById("changecolourbutton");
 setInterval(schimbaCuloareaButonului, 2000);
-function schimbaCuloareaButonului(){
-    let culoareRandom = Math.floor(Math.random()*16777215).toString(16);
+
+function schimbaCuloareaButonului() {
+    let culoareRandom = Math.floor(Math.random() * 16777215).toString(16);
     changebuton.style.backgroundColor = '#' + culoareRandom;
 }

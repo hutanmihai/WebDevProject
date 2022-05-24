@@ -16,7 +16,7 @@ function validateForm() {
         return false;
     } else {
         let data = new Date().toISOString().slice(0, 10)
-        localStorage.setItem("data-conectare",data);
+        localStorage.setItem("data-conectare", data);
         return true;
     }
 }

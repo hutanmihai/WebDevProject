@@ -11,40 +11,39 @@ const t9 = "Edit your work; your opinions will not be taken seriously if you mis
 
 let text_array = [];
 
-text_array.push(t1,t2,t3,t4,t5,t6,t7,t8,t9);
+text_array.push(t1, t2, t3, t4, t5, t6, t7, t8, t9);
 
-text_array.sort(function (firstEl,secondEl){
-    if (firstEl.length <= secondEl.length){
+text_array.sort(function (firstEl, secondEl) {
+    if (firstEl.length <= secondEl.length) {
         return -1;
-    }
-    else return 0;
+    } else return 0;
 });
-for (let i=0; i<text_array.length; ++i){
-    if (i==0){
+for (let i = 0; i < text_array.length; ++i) {
+    if (i == 0) {
         document.getElementById("one").innerText = text_array[i];
     }
-    if (i==1){
+    if (i == 1) {
         document.getElementById("two").innerText = text_array[i];
     }
-    if (i==2){
+    if (i == 2) {
         document.getElementById("three").innerText = text_array[i];
     }
-    if (i==3){
+    if (i == 3) {
         document.getElementById("four").innerText = text_array[i];
     }
-    if (i==4){
+    if (i == 4) {
         document.getElementById("five").innerText = text_array[i];
     }
-    if (i==5){
+    if (i == 5) {
         document.getElementById("six").innerText = text_array[i];
     }
-    if (i==6){
+    if (i == 6) {
         document.getElementById("seven").innerText = text_array[i];
     }
-    if (i==7){
+    if (i == 7) {
         document.getElementById("eight").innerText = text_array[i];
     }
-    if (i==8){
+    if (i == 8) {
         document.getElementById("nine").innerText = text_array[i];
     }
 }
