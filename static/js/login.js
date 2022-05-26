@@ -22,8 +22,11 @@ document.getElementById('butonulvietii').addEventListener('click', (e) => {
 
     const email = document.getElementById("user").value;
     const password = document.getElementById("pass").value;
-    console.log(password);
-    fetch(`/login-get?email=${email}&password=${password}`).then((res) => {
+    console.log(email,password)
+    fetch(`/login-get?email=${email}&password=${password}`,
+        {
+            method: "GET"
+        }).then((res) => {
         if (res.ok) {
             window.sessionStorage.setItem('email', email);
             window.sessionStorage.setItem('password', password);

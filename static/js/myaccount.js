@@ -11,13 +11,12 @@ document.getElementById('changepassword').addEventListener('click', (e) => {
     const password = window.sessionStorage.getItem('password');
     fetch(`/change-password?email=${email}&password=${password}`, {
         method: "PUT",
-        headers: {"Content-Type": "application/json"}
     }).then((res) => {
         return res.json()
     })
         .then((data) => {
-            window.sessionStorage.setItem('password', data.password);
-            window.location.href = '../myaccount';
+            window.sessionStorage.setItem('password', data.parolanoua);
+            window.location.href = '../myaccount'
         })
 })
 

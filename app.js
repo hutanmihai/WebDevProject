@@ -1,5 +1,6 @@
 const express = require('express');
 const app = express();
+const fs = require('fs');
 
 let users = [];
 
@@ -31,56 +32,124 @@ app.get('/reviews', (req, res) => {
     res.render('reviews');
 });
 
+// app.post("/register-post", (req, res) => {
+//     users.push({
+//         email: req.body.email,
+//         password: req.body.pass
+//     })
+//     res.redirect('/login')
+// })
+//
+// app.get("/login-get", (req, res) => {
+//     const email = req.query.email;
+//     const pass = req.query.password;
+//     let gasit = 0;
+//     users.forEach(element => {
+//         if (element.email == email && element.password == pass) {
+//             gasit = 1;
+//             res.send('');
+//         }
+//     })
+//     if (gasit == 0) {
+//         res.status(400).send('');
+//     }
+// })
+//
+// app.put("/change-password", (req, res) => {
+//     const email = req.query.email;
+//     const pass = req.query.password;
+//     let pos;
+//     for (let i = 0; i < users.length; ++i) {
+//         if (users[i].email == email && users[i].password == pass) {
+//             pos = i;
+//         }
+//     }
+//     users[pos].password = makePass(8);
+//     let password = users[pos].password;
+//     res.send({password});
+// })
+//
+// app.delete("/delete-account", (req, res) => {
+//     const email = req.query.email;
+//     const pass = req.query.password;
+//     let pos;
+//     for (let i = 0; i < users.length; ++i) {
+//         if (users[i].email == email && users[i].password == pass) {
+//             pos = i;
+//         }
+//     }
+//     users = users.splice(pos, 1);
+//     res.send('');
+// })
+
+// ------------------------------------------------------------------- //
+
 app.post("/register-post", (req, res) => {
-    users.push({
+    let newuser = {
         email: req.body.email,
         password: req.body.pass
-    })
+    };
+    let rawfile = fs.readFileSync('users.json');
+    let file = JSON.parse(rawfile);
+    file.push(newuser);
+    fs.writeFileSync('users.json', JSON.stringify(file));
     res.redirect('/login')
 })
 
 app.get("/login-get", (req, res) => {
     const email = req.query.email;
     const pass = req.query.password;
-    let gasit = 0;
-    users.forEach(element => {
-        if (element.email == email && element.password == pass) {
-            gasit = 1;
-            res.send('');
+    let rawfile = fs.readFileSync('users.json');
+    let file = JSON.parse(rawfile);
+    let gasit = false;
+    for (let i = 0; i < file.length; ++i)
+        if (file[i].password == pass && file[i].email == email) {
+            gasit = true;
+            res.send('')
         }
-    })
-    if (gasit == 0) {
+
+    fs.writeFileSync('users.json', JSON.stringify(file));
+    if (gasit === false) {
         res.status(400).send('');
     }
+
 })
 
 app.put("/change-password", (req, res) => {
     const email = req.query.email;
     const pass = req.query.password;
-    let pos;
-    for (let i = 0; i < users.length; ++i) {
-        if (users[i].email == email && users[i].password == pass) {
+    let rawfile = fs.readFileSync('users.json');
+    let file = JSON.parse(rawfile);
+    let pos = 0;
+    for (let i = 0; i < file.length; ++i) {
+        if (file[i].password == pass && file[i].email == email) {
             pos = i;
         }
     }
-    users[pos].password = makePass(8);
-    let password = users[pos].password;
-    res.send({password});
+    file[pos].password = makePass(10);
+    fs.writeFileSync('users.json', JSON.stringify(file));
+    let parolanoua = file[pos].password;
+    res.send({parolanoua});
 })
 
 app.delete("/delete-account", (req, res) => {
     const email = req.query.email;
     const pass = req.query.password;
-    console.log(users, email, pass)
+    let rawfile = fs.readFileSync('users.json');
+    let file = JSON.parse(rawfile);
     let pos;
-    for (let i = 0; i < users.length; ++i) {
-        if (users[i].email == email && users[i].password == pass) {
+    for (let i = 0; i < file.length; ++i) {
+        if (file[i].password == pass && file[i].email == email) {
             pos = i;
+            break
         }
     }
-    users = users.splice(pos, 1);
+    file.splice(pos, 1);
+    fs.writeFileSync('users.json', JSON.stringify(file));
     res.send('');
 })
+
+// --------------------------------------------------------------------//
 
 app.get("*", (req, res) => {
     res.render("error_page");

@@ -1,9 +1,9 @@
 METODA GET:
 / -> afiseaza pagina register
-/login -> afiseaza pagina
-/index -> afiseaza pagina
-/myaccount -> afiseaza pagina
-/reviews -> afiseaza pagina
+/login -> afiseaza pagina login
+/index -> afiseaza pagina index
+/myaccount -> afiseaza pagina myaccount
+/reviews -> afiseaza pagina reviews
 /login-get -> se apeleaza cu fetch, parametrii email si pass sunt transmisi prin url, verifica daca user-ul exista
 
 METODA POST:
